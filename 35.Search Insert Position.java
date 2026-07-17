@@ -1,1 +1,16 @@
-class Solution {public:    int reverse(int x) {        int rev = 0;        while (x != 0) {            int pop = x % 10;            x /= 10;            if (rev > INT_MAX / 10 || (rev == INT_MAX / 10 && pop > 7))                return 0;            if (rev < INT_MIN / 10 || (rev == INT_MIN / 10 && pop < -8))                return 0;            rev = rev * 10 + pop;        }        return rev;    }};
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        left = 0
+        right = len(nums) - 1
+
+        while left <= right:
+            mid = (left + right) // 2
+
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] > target:
+                right = mid - 1
+            else:
+                left = mid + 1
+        
+        return left 
