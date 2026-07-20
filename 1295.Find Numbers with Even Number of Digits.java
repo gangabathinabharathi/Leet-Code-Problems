@@ -1,15 +1,16 @@
-function hasEvenDigits(num)
-{    
-    digitCount = 0
-    while num is not 0
-    {
-        digit = num % 10
-        digitCount = digitCount + 1
-        num = num / 10
+class Solution {
+    public int findNumbers(int[] nums) {
+        
+        int count=0;
+        
+        for(int i =0 ; i< nums.length; i++){
+            
+            if((nums[i]>9 && nums[i]<100) || (nums[i]>999 && nums[i]<10000) || nums[i]==100000){
+                count++;
+            }
+        }
+        
+        return count;
+        
     }
-
-    if digitCount % 2 == 0
-        return true
-    else
-        return false
 }
