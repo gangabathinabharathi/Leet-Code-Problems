@@ -1,5 +1,15 @@
 class Solution {
-    public boolean isBoomerang(int[][] points) {
-        return !((points[0][0]-points[1][0])*(points[0][1]-points[2][1])==(points[0][0]-points[2][0])*(points[0][1]-points[1][1]));
+    public boolean checkStraightLine(int[][] coordinates) {
+
+        for (int i = 2; i < coordinates.length; i++) {
+            if ((coordinates[i][1] - coordinates[0][1]) *
+                (coordinates[1][0] - coordinates[0][0]) !=
+                (coordinates[1][1] - coordinates[0][1]) *
+                (coordinates[i][0] - coordinates[0][0])) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
